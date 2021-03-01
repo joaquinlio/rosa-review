@@ -7,7 +7,7 @@ import React from 'react';
  * @desc Material design
  */
 import { 
-  Grid, Button, Toolbar 
+  Toolbar 
 } from '@material-ui/core';
 
 import Imagen from "../../assets/img/logo.png"
@@ -52,7 +52,7 @@ const App = ({ ...props }) => {
     <>
       <AppBar position="fixed">
         <Toolbar variant={ "dense" }>          
-          <img src={Imagen}/>  
+          <img src={Imagen} alt="logo"/>  
         </Toolbar>
       </AppBar>
      

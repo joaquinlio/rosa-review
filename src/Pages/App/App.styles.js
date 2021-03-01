@@ -1,7 +1,7 @@
 /**
  * @desc Dependencias
  */
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 /**
  * @desc Material design
