@@ -146,14 +146,6 @@ export const AppBar = styled(AppBarMaterial)`
     
 `;
 
-/**
- * @desc Contenedor de formulario
- */
-export const FormContainer = styled.div`
-    display: flex;
-    
-`;
-
 
 
 
