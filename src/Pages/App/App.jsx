@@ -15,7 +15,7 @@ import Imagen from "../../assets/img/logo.png"
 /**
  * @desc Estilos
  */
-import { Container, Slide, QuestionContainer, Question, IconsContainer, IconContainer, VeryGoodIcon, Acceptable, MustImprove, IconText, TextField, SendButton, AppBar } from "./App.styles"
+import { Container, Slide, QuestionContainer, Question, IconsContainer, IconContainer, VeryGoodIcon, Acceptable, MustImprove, IconText, TextField, SendButton, AppBar, FormContainer } from "./App.styles"
 
 const questions = [
   {

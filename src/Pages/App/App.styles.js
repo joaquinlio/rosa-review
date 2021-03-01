@@ -129,8 +129,13 @@ export const SendButton = styled( Button )`
     margin: 10px !important;
     background-color: #18B9F2 !important;
     height: 40px;
+    min-width: 150px !important;
+    font-weight: bold !important;
 `;
 
+/**
+ * @desc Navbar
+ */
 export const AppBar = styled(AppBarMaterial)`
     &.MuiAppBar-colorPrimary{        
         background-color: black;
@@ -140,6 +145,16 @@ export const AppBar = styled(AppBarMaterial)`
     }
     
 `;
+
+/**
+ * @desc Contenedor de formulario
+ */
+export const FormContainer = styled.div`
+    display: flex;
+    
+`;
+
+
 
 
 
