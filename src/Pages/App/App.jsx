@@ -1,61 +1,149 @@
 /**
  * @desc Dependencias
  */
-import React, { Suspense, lazy } from 'react';
-import { Route, Switch, Redirect, withRouter } from "react-router-dom";
-import { connect } from "react-redux"
+import React from 'react';
+
 /**
- * @desc Theme
+ * @desc Material design
  */
-import ThemeDefault from "../../Utils/theme";
+import { 
+  Grid, Button, Toolbar 
+} from '@material-ui/core';
 
-// Layout
-import Wrapper from "../../Components/Wrapper/Wrapper";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import { ThemeProvider } from "@material-ui/core/styles";
+import Imagen from "../../assets/img/logo.png"
 
-// Componenetes
-const HomePage    = lazy(() => import("../Home/Home"));
-const ProfilePage = lazy(() => import("../Profile/Profile"));
+/**
+ * @desc Estilos
+ */
+import { Container, Slide, QuestionContainer, Question, IconsContainer, IconContainer, VeryGoodIcon, Acceptable, MustImprove, IconText, TextField, SendButton, AppBar } from "./App.styles"
 
+const questions = [
+  {
+    title: "Calidad de la comida"    
+  },
+  {
+    title: "Atención"    
+  },
+  {
+    title: "Cordialidad de nuestros empleados"    
+  },
+  {
+    title: "Limpieza"    
+  },
+  {
+    title: "Relacion precio/calidad"    
+  },
+  {
+    title: "¿Volvería a visitarnos?"    
+  },
+  {
+    title: "Dejanos algunos datos"    
+  },
+  {
+    title: "Gracias por responder"    
+  },
+]
 
 const App = ({ ...props }) => {
-  // Alias de las propiedades
-  const { user = null } = props;
-  return (
-    <ThemeProvider theme={ ThemeDefault( ) }>
-        <Wrapper { ...props }>
-          <Switch>
-              <Suspense fallback={<CircularProgress />}>
 
-                {/* Rutas */}
-						    <Route exact path="/" render={ ({ ...props }) => <HomePage {...props} /> } /> 
-                <Route exact path="/profile" render={ ({ ...props }) => <ProfilePage {...props} /> } />  
-            
-              </Suspense>
-          </Switch>
-        </Wrapper>
-    </ThemeProvider>
+  const [ visibleCard, setvisibleCard] = React.useState(0);
+
+  return (
+    <>
+      <AppBar position="fixed">
+        <Toolbar variant={ "dense" }>          
+          <img src={Imagen}/>  
+        </Toolbar>
+      </AppBar>
+     
+      <Container>      
+      {
+        questions.map( (question , key) => 
+          <Slide style={{ display: visibleCard === key ? 'block' : 'none'}}>
+            <>
+              <QuestionContainer>
+                <Question variant="h5">{ question.title }</Question>
+              </QuestionContainer>
+              <IconsContainer container>
+                {
+                  key < 5 &&
+                  <>
+                    
+                    <IconContainer onClick={ () => setvisibleCard( visibleCard + 1 )} item xs="4">
+                      <VeryGoodIcon />
+                      <IconText>Muy bueno</IconText>             
+                    </IconContainer>
+                    <IconContainer onClick={ () => setvisibleCard( visibleCard + 1 )} item xs="4">
+                    <Acceptable />
+                      <IconText>Aceptable</IconText>             
+                    </IconContainer>
+                    <IconContainer onClick={ () => setvisibleCard( visibleCard + 1 )} item xs="4">
+                      <MustImprove /> 
+                      <IconText>Debe mejorar</IconText>             
+                    </IconContainer> 
+                    
+                  </>                                     
+                }   
+                {
+                  key === 5 &&
+                  <>                    
+                    <IconContainer onClick={ () => setvisibleCard( visibleCard + 1 )} item xs="6">
+                      <VeryGoodIcon />
+                      <IconText>Si</IconText>             
+                    </IconContainer>
+                    <IconContainer onClick={ () => setvisibleCard( visibleCard + 1 )} item xs="6">
+                      <MustImprove /> 
+                      <IconText>No</IconText>           
+                    </IconContainer>                    
+                  </> 
+                }   
+                {
+                  key === 6 && 
+                  <>                    
+                    <TextField  
+                      label="Sugerencias"                    
+                      multiline
+                      rows={2}                      
+                      variant="outlined"
+                    />  
+                    <TextField                      
+                      label="Nombre y Apellido"                      
+                      variant="outlined"
+                    />
+                    <TextField  
+                      label="Dirección"                                                               
+                      variant="outlined"
+                    />
+                    <TextField   
+                      label="Fecha de cumpleaños"                                                              
+                      variant="outlined"
+                    />
+                    <TextField  
+                      label="Tel/Celular"                                                               
+                      variant="outlined"
+                    />
+                    <TextField  
+                      label="Email"                                                               
+                      variant="outlined"
+                    />
+                    <SendButton variant="contained" color="primary" onClick={ () => setvisibleCard( visibleCard + 1 )}>Enviar</SendButton>
+                  </> 
+                } 
+                {
+                  key === 7 &&
+                  <>                    
+                    <SendButton variant="contained" color="primary" onClick={ () => setvisibleCard( 0 )}>Responder otra encuesta</SendButton>                    
+                  </> 
+                }                            
+              </IconsContainer> 
+            </>
+          </Slide>    
+        )
+      }          
+    </Container>
+  
+    </>
   );
 };
 
-/**
- * @desc Puente a redux
- * 
- * @param { Object }
- * 
- * @return { Object }
- */
-const mapStateToProps = store => {
-
-	return {
-
-		// Usuario logueado
-		user: store.LoginReducer.user
-
-	};
-
-};
-
-export default withRouter(connect( mapStateToProps )( App ));
-
+export default App;
