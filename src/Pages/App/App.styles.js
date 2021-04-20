@@ -1,7 +1,7 @@
 /**
  * @desc Dependencias
  */
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 
 /**
  * @desc Material design
@@ -12,8 +12,7 @@ import {
     Typography,
     TextField as TextFieldMaterial,
     Button,
-    AppBar as AppBarMaterial,
-    Toolbar
+    AppBar as AppBarMaterial
 } from '@material-ui/core';
 
 import { Slide as SlideReact } from "react-awesome-reveal";

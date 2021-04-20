@@ -7,8 +7,7 @@ import React from 'react';
  * @desc Material design
  */
 import { 
-  Toolbar,
-  Typography
+  Toolbar
 } from '@material-ui/core';
 
 import Logo from "../../assets/img/logo.png"

@@ -145,7 +145,7 @@ export default function Form() {
            
             return true;
 
-        }.bind( this ), async function( errorCode ){
+        }, async function( errorCode ){
 
             // Actualizamos el estado del envio
             setSending(false);
@@ -154,7 +154,7 @@ export default function Form() {
 
             return false;
 
-        }.bind(this));
+        });
 
         return true;
     }
