@@ -8,6 +8,7 @@
     "jsx-runtime": "^1.2.0",
     "react": "^16.14.0",
     "react-awesome-reveal": "^3.7.0",
+    "react-background-slider": "^2.0.0",
     "react-dom": "^17.0.1",
     "react-scripts": "^3.4.3",
     "styled-components": "^5.1.1"

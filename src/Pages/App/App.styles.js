@@ -1,7 +1,7 @@
 /**
  * @desc Dependencias
  */
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 /**
  * @desc Material design
@@ -12,7 +12,8 @@ import {
     Typography,
     TextField as TextFieldMaterial,
     Button,
-    AppBar as AppBarMaterial
+    AppBar as AppBarMaterial,
+    Toolbar
 } from '@material-ui/core';
 
 import { Slide as SlideReact } from "react-awesome-reveal";
@@ -138,13 +139,57 @@ export const SendButton = styled( Button )`
  */
 export const AppBar = styled(AppBarMaterial)`
     &.MuiAppBar-colorPrimary{        
-        background-color: black;
+        background-color: #101010;
     }
     & .MuiToolbar-root{
         justify-content: center;
     }
     
 `;
+
+/**
+ * @desc Footer
+ */
+ export const Footer = styled( GridMaterial )`    
+    margin-top: 0px;
+    background-color: #191919;
+    padding: 20px;
+`;
+
+/**
+ * @desc Footer toolbar
+ */
+export const Title = styled(Typography)`
+    &.MuiTypography-root{
+        color: #7a7a7a;        
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+`;
+
+/**
+ * @desc Footer info
+ */
+ export const Info = styled(Typography)`
+
+    &.MuiTypography-root{
+        color: #7a7a7a;
+        font-size: 0.8rem;        
+    }
+
+`;
+
+
+
+
+
+
+
+
+
+
+
 
 
 

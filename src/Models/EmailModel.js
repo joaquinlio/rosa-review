@@ -4,12 +4,12 @@
 import Requests from "../Utils/Requests";
 
 /**
- * @desc Modelo de ordenes
+ * @desc Modelo de emails
  */
 
-class GamesModel {
+class EmailModel {
   /**
-   * @desc Solicitamos las ordenes.
+   * @desc enviamos el email.
    *
    * @param { Number } version
    * @param { String } store
@@ -17,13 +17,13 @@ class GamesModel {
    *
    * @return { Promise }
    */
-  static async getSummonerData( summonerName ) {
+  static async sendReview( data ) {
     try {
       // Requester
       const request = new Requests();
-
+      console.log(data)
       // Respuesta
-      return await request.get(`http://localhost:3001/lol/summoners/${summonerName}`);
+      return await request.post(`http://192.168.1.38:3001/send-email`, data );
       
     } catch (error) {
       
@@ -33,4 +33,4 @@ class GamesModel {
     }
   }
 }
-export default GamesModel;
+export default EmailModel;
