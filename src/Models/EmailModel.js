@@ -23,7 +23,7 @@ class EmailModel {
       const request = new Requests();
       console.log(data)
       // Respuesta
-      return await request.post(`http://192.168.1.38:3001/send-email`, data );
+      return await request.post(`https://rosa-review-mailer.vercel.app/send-email`, data );
       
     } catch (error) {
       
