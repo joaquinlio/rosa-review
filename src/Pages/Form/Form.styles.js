@@ -12,6 +12,7 @@
      Typography,
      TextField as TextFieldMaterial,
      Button,
+     FormControl as FormControlMaterial
  } from '@material-ui/core';
  
  import { Slide as SlideReact } from "react-awesome-reveal";
@@ -114,6 +115,16 @@
  `;
  
  /**
+  * @desc Container del input
+  */
+ export const FormControl = styled(FormControlMaterial)`
+ &.MuiFormControl-root{
+     margin: 3px;
+    
+ }
+`;
+
+ /**
   * @desc Textarea de sugerencias
   */
  export const TextField = styled( TextFieldMaterial )`      
@@ -131,7 +142,15 @@
      min-width: 150px !important;
      font-weight: bold !important;
  `;
+
+ /**
+ * @desc Mensaje de salida
+ */
+export const Output = styled( GridMaterial )`
+color:red;
+`
   
+
  
  
  
