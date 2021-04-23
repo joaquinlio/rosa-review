@@ -43,7 +43,8 @@
  export const Slide = styled( SlideReact )`  
      width: 100%;
      background-color:white;     
-     border-radius: 50px;     
+     border-radius: 50px;   
+     box-shadow: 10px 5px 25px black;  
  `;
  
  /**
