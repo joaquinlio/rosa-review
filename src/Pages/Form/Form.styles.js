@@ -12,7 +12,8 @@
      Typography,
      TextField as TextFieldMaterial,
      Button,
-     FormControl as FormControlMaterial
+     FormControl as FormControlMaterial,
+     MobileStepper as MobileStepperMaterial
  } from '@material-ui/core';
  
  import { Slide as SlideReact } from "react-awesome-reveal";
@@ -30,10 +31,10 @@
   * @desc Raiz
   */
  export const Container = styled( ContainerMaterial )`  
-     width: 100%;
-     min-height: 100vh;
-     display: flex !important;
-     align-items: center;    
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex !important;
+    align-items: center;    
  `;
  
  /**
@@ -41,8 +42,7 @@
   */
  export const Slide = styled( SlideReact )`  
      width: 100%;
-     background-color:white;
-     
+     background-color:white;     
      border-radius: 50px;     
  `;
  
@@ -60,7 +60,10 @@
   * @desc Texto de la pregunta
   */
  export const Question = styled( Typography )`  
-      
+    &.MuiTypography-root{
+        font-size: 1.4rem;
+
+    }
  `;
  
  /**
@@ -70,24 +73,37 @@
      padding: 5px;
      display: flex;
      justify-content: center;
-     min-height: 120px;
  `;
  
  /**
-  * @desc Contianer de los iconos
+  * @desc Contianer de las respuestas
   */
- export const IconContainer = styled( GridMaterial )`  
-     display:flex;    
-     flex-direction: column;
-     align-items: center;     
+ export const AnswerContainer = styled( GridMaterial )`       
+    height: 73px; 
+    display:flex;    
+    flex-direction: column;
+    align-items: center;     
  `;
+
+  /**
+  * @desc Respuesta
+  */
+export const Answer = styled( GridMaterial )`  
+   display:flex;    
+   flex-direction: column;
+   align-items: center;  
+   width: 100px; 
+   cursor: pointer;   
+`;
+
+
  
  /**
   * @desc Emoticon de "Muy bueno"
   */
  export const VeryGoodIcon = styled( InsertEmoticonIcon )`      
      font-size: 3rem !important;
-     color: #18B9F2;
+     color: #c59d5f;
  `;
  
  /**
@@ -95,7 +111,7 @@
   */
  export const Acceptable = styled( SentimentSatisfiedIcon )`      
      font-size: 3rem !important;
-     color: #18B9F2;
+     color: #c59d5f;
  `;
  
  /**
@@ -103,7 +119,7 @@
   */
  export const MustImprove = styled( SentimentVeryDissatisfiedIcon )`      
      font-size: 3rem !important;
-     color: #18B9F2;
+     color: #c59d5f;
  `;
  
  /**
@@ -112,6 +128,7 @@
  export const IconText = styled( Typography )`      
      font-size: 0.9rem !important;    
      margin-top: 5px !important;
+     flex-direction: column !important;
  `;
  
  /**
@@ -137,7 +154,7 @@
   */
  export const SendButton = styled( Button )`      
      margin: 10px !important;
-     background-color: #18B9F2 !important;
+     background-color: #c59d5f !important;
      height: 40px;
      min-width: 150px !important;
      font-weight: bold !important;
@@ -147,10 +164,32 @@
  * @desc Mensaje de salida
  */
 export const Output = styled( GridMaterial )`
-color:red;
+    color:red;
 `
-  
 
+/**
+ * @desc Mensaje de salida
+ */
+export const StepperContainer = styled( GridMaterial )`
+    display: flex;
+    justify-content: center;
+`
+
+ /**
+ * @desc Pasos
+ */
+export const MobileStepper = styled( MobileStepperMaterial )`
+    &.MuiMobileStepper-root{
+        background-color: white;
+        margin: 10px;
+    }
+    & .MuiMobileStepper-dot{
+        margin: 10px;
+    }
+    & .MuiMobileStepper-dotActive{
+        background-color: #c59d5f;
+    }
+`
  
  
  

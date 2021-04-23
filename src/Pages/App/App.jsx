@@ -23,7 +23,9 @@ import {
   AppBar,
   Footer,
   Title,
-  Info
+  Info,
+  Copyright,
+  LinkedIn
 } from "./App.styles"
 
 // Imagenes de fondo
@@ -40,7 +42,9 @@ const App = ({ ...props }) => {
     <>
       <AppBar position="fixed">
         <Toolbar variant={ "dense" }>          
-          <img src={Logo} alt="logo"/>  
+          <a href="https://www.pastarossa.com.ar/">
+            <img src={Logo} alt="logo"/>
+          </a>
         </Toolbar>
       </AppBar>
 
@@ -76,7 +80,10 @@ const App = ({ ...props }) => {
           </Info> 
           <Info>
             E-mail: adrogue@pastarossa.com.ar
-          </Info>  
+          </Info> 
+          <Copyright>
+            Copyright © 2016-2021 Pasta Rossa | Todos los derechos reservados | Desarrollado por <LinkedIn href="https://www.linkedin.com/in/joaquin-lio/" target="_blanck">Joaquin Lio</LinkedIn>
+          </Copyright>
       </Footer>
     </>
   );

@@ -9,13 +9,16 @@ import {
     QuestionContainer,
     Question,
     IconsContainer,
-    IconContainer,
+    AnswerContainer,
     VeryGoodIcon,
     Acceptable,
     MustImprove,
     IconText,
     TextField,
     SendButton,
+    MobileStepper,
+    StepperContainer,
+    Answer
 } from './Form.styles';
 
 /* Componentes */
@@ -36,41 +39,46 @@ class Form extends FormUI {
             <Container>         
             {
                 questions.map( (question , key) => 
-                    <Slide key={key} style={{ display: visibleCard === key ? 'block' : 'none'}}>
+                    <Slide duration="1800" key={key} style={{ display: visibleCard === key ? 'block' : 'none'}}>
                         <>
                             <QuestionContainer>
-                                <Question variant="h5">{ question.title }</Question>
+                                <Question>{ question.title }</Question>
                             </QuestionContainer>
                             <IconsContainer container>
                                 {
                                 key < 5 &&
                                 <>                                
-                                    <IconContainer onClick={ () => this.saveAnwser( visibleCard + 1, key, "Muy bueno")} item xs={4}>
-                                        <VeryGoodIcon />
-                                        <IconText>Muy bueno</IconText>             
-                                    </IconContainer>
-                                    <IconContainer onClick={ () => this.saveAnwser( visibleCard + 1, key, "Aceptable" )} item xs={4}>
-                                        <Acceptable />
-                                        <IconText>Aceptable</IconText>             
-                                    </IconContainer>
-                                    <IconContainer onClick={ () => this.saveAnwser( visibleCard + 1, key, "Debe mejorar" )} item xs={4}>
-                                        <MustImprove /> 
-                                        <IconText>Debe mejorar</IconText>             
-                                    </IconContainer> 
-                                    
+                                    <AnswerContainer item xs={4}>
+                                        <Answer onClick={ () => this.saveAnwser( visibleCard + 1, key, "Muy bueno")} >
+                                            <VeryGoodIcon />
+                                            <IconText>Muy bueno</IconText>  
+                                        </Answer>
+                                    </AnswerContainer>
+                                    <AnswerContainer item xs={4}>
+                                        <Answer onClick={ () => this.saveAnwser( visibleCard + 1, key, "Aceptable" )} >
+                                            <Acceptable />
+                                            <IconText>Aceptable</IconText>             
+                                        </Answer>
+                                    </AnswerContainer>
+                                    <AnswerContainer item xs={4}>
+                                        <Answer onClick={ () => this.saveAnwser( visibleCard + 1, key, "Debe mejorar" )}>
+                                            <MustImprove /> 
+                                            <IconText>Debe mejorar</IconText>             
+                                        </Answer>
+                                    </AnswerContainer>                                     
                                 </>                                     
                                 }   
                                 {
                                 key === 5 &&
                                 <>                    
-                                    <IconContainer onClick={ () => this.saveAnwser( visibleCard + 1, key, "Si" )} item xs={6}>
+                                    <AnswerContainer onClick={ () => this.saveAnwser( visibleCard + 1, key, "Si" )} item xs={6}>
                                         <VeryGoodIcon />
                                         <IconText>Si</IconText>             
-                                    </IconContainer>
-                                    <IconContainer onClick={ () => this.saveAnwser( visibleCard + 1, key, "No" )} item xs={6}>
+                                    </AnswerContainer>
+                                    <AnswerContainer onClick={ () => this.saveAnwser( visibleCard + 1, key, "No" )} item xs={6}>
                                         <MustImprove /> 
                                         <IconText>No</IconText>           
-                                    </IconContainer>                    
+                                    </AnswerContainer>                    
                                 </> 
                                 }   
                                 {
@@ -142,6 +150,15 @@ class Form extends FormUI {
                                 </> 
                                 }                          
                             </IconsContainer> 
+                            <StepperContainer>
+                                <MobileStepper
+                                    variant="dots"
+                                    steps={questions.length - 1}
+                                    position="static"
+                                    activeStep={visibleCard}                               
+                                />
+                            </StepperContainer>
+                            
                         </>
                     </Slide>    
                 )

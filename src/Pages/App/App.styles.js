@@ -31,7 +31,7 @@ import {
  */
 export const Container = styled( ContainerMaterial )`  
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     display: flex !important;
     align-items: center;    
 `;
@@ -178,6 +178,34 @@ export const Title = styled(Typography)`
     }
 
 `;
+
+/**
+ * @desc Footer Copyright
+ */
+ export const Copyright = styled(Typography)`
+
+    &.MuiTypography-root{
+        color: #7a7a7a;
+        font-size: 0.8rem;    
+        text-align: center;
+        margin-top: 15px;    
+    }
+
+`;
+
+
+/**
+ * @desc Footer LinkedIn
+ */
+ export const LinkedIn = styled.a` 
+    font-weight: bold;   
+    color: #c59d5f;
+    font-size: 0.8rem;
+    text-decoration: none;          
+`;
+
+
+
 
 
 
