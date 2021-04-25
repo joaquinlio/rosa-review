@@ -36,7 +36,7 @@ import { validateHttpResponse } from "../../Utils/ValidateResponse"
                 title: "Limpieza"    
                 },
                 {
-                title: "Relacion precio/calidad"    
+                title: "Relación precio/calidad"    
                 },
                 {
                 title: "¿Volvería a visitarnos?"    
