@@ -44,7 +44,7 @@
      width: 100%;
      background-color:white;     
      border-radius: 50px;   
-     box-shadow: 10px 5px 25px black;  
+     box-shadow: 7px 4px 35px black;  
  `;
  
  /**

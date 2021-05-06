@@ -224,20 +224,7 @@ import { validateHttpResponse } from "../../Utils/ValidateResponse"
                 return false;
 
             }
-
-            // Verificamos el email
-            if( clientData.email.value === '' ){
-
-                // Indicamos que el nombre esta vacio.
-                clientData.email.empty = true;
-
-                // Actualizamos el estado
-                this.setState({ clientData });
-
-                return false;
-
-            }
-
+            
             return true;
 
         }catch( error ){

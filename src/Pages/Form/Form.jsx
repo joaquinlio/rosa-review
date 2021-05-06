@@ -125,13 +125,11 @@ class Form extends FormUI {
                                         onChange={ ( e ) => this.handleClientData(e) }
                                     />
                                     <TextField  
-                                        label="Email (*)"                                                               
+                                        label="Email"                                                               
                                         variant="outlined"
                                         name="email"
                                         value={ clientData.email.value}
-                                        onChange={ ( e ) => this.handleClientData(e) }
-                                        error={clientData.email.empty}
-                                        helperText={ clientData.email.empty && "Campo obligatorio" }
+                                        onChange={ ( e ) => this.handleClientData(e) }                             
                                     />                                
                                     <SendButton 
                                         variant="contained"
