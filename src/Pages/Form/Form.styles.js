@@ -13,7 +13,11 @@
      TextField as TextFieldMaterial,
      Button,
      FormControl as FormControlMaterial,
-     MobileStepper as MobileStepperMaterial
+     Stepper as StepperMaterial,
+     Step as StepMaterial,
+     StepLabel as StepLabelMaterial
+     
+     
  } from '@material-ui/core';
  
  import { Slide as SlideReact } from "react-awesome-reveal";
@@ -179,19 +183,41 @@ export const StepperContainer = styled( GridMaterial )`
  /**
  * @desc Pasos
  */
-export const MobileStepper = styled( MobileStepperMaterial )`
-    &.MuiMobileStepper-root{
-        background-color: white;
-        margin: 10px;
+export const Stepper = styled( StepperMaterial )`
+    &.MuiStepper-root{
+        padding: 0px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
-    & .MuiMobileStepper-dot{
-        margin: 10px;
+    & .MuiStep-horizontal{
+        padding: 0px 8px 0px 8px;
     }
-    & .MuiMobileStepper-dotActive{
-        background-color: #c59d5f;
+    & .MuiStepIcon-root.MuiStepIcon-active{
+        color: #c59d5f;
     }
+    & .MuiStepIcon-root.MuiStepIcon-completed{
+        color: #c59d5f;
+    }
+    & .MuiStepIcon-root{
+        font-size: 1.2rem;
+    }
+    
+`
+
+ /**
+ * @desc Paso
+ */
+  export const Step = styled( StepMaterial )`
+  
 `
  
+ /**
+ * @desc Paso texto
+ */
+  export const StepLabel = styled( StepLabelMaterial )`
+  
+`
+
  
  
  

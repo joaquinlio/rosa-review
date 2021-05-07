@@ -16,7 +16,9 @@ import {
     IconText,
     TextField,
     SendButton,
-    MobileStepper,
+    Stepper,
+    Step,
+    StepLabel,
     StepperContainer,
     Answer
 } from './Form.styles';
@@ -49,9 +51,9 @@ class Form extends FormUI {
                                 key < 5 &&
                                 <>                                
                                     <AnswerContainer item xs={4}>
-                                        <Answer onClick={ () => this.saveAnwser( visibleCard + 1, key, "Muy bueno")} >
-                                            <VeryGoodIcon />
-                                            <IconText>Muy bueno</IconText>  
+                                        <Answer onClick={ () => this.saveAnwser( visibleCard + 1, key, "Debe mejorar" )}>
+                                            <MustImprove /> 
+                                            <IconText>Debe mejorar</IconText>             
                                         </Answer>
                                     </AnswerContainer>
                                     <AnswerContainer item xs={4}>
@@ -60,10 +62,10 @@ class Form extends FormUI {
                                             <IconText>Aceptable</IconText>             
                                         </Answer>
                                     </AnswerContainer>
-                                    <AnswerContainer item xs={4}>
-                                        <Answer onClick={ () => this.saveAnwser( visibleCard + 1, key, "Debe mejorar" )}>
-                                            <MustImprove /> 
-                                            <IconText>Debe mejorar</IconText>             
+                                    <AnswerContainer item xs={4}>                                        
+                                        <Answer onClick={ () => this.saveAnwser( visibleCard + 1, key, "Muy bueno")} >
+                                            <VeryGoodIcon />
+                                            <IconText>Muy bueno</IconText>  
                                         </Answer>
                                     </AnswerContainer>                                     
                                 </>                                     
@@ -102,14 +104,7 @@ class Form extends FormUI {
                                         onChange={ ( e ) => this.handleClientData(e) }
                                         error={clientData.name.empty}
                                         helperText={ clientData.name.empty && "Campo obligatorio" }
-                                    />                                 
-                                    <TextField  
-                                        label="Dirección"                                                               
-                                        variant="outlined"
-                                        name="direccion"
-                                        value={ clientData.direccion.value}
-                                        onChange={ ( e ) => this.handleClientData(e) }
-                                    />
+                                    />                                                                    
                                     <TextField   
                                         label="Fecha de cumpleaños"                                                              
                                         variant="outlined"
@@ -149,12 +144,19 @@ class Form extends FormUI {
                                 }                          
                             </IconsContainer> 
                             <StepperContainer>
-                                <MobileStepper
-                                    variant="dots"
-                                    steps={questions.length - 1}
-                                    position="static"
+                                <Stepper                                     
+                                    alternativeLabel={true}                          
                                     activeStep={visibleCard}                               
-                                />
+                                >
+                                {
+                                    questions.map(( question, key ) => 
+                                        key < 7 &&
+                                        <Step key={key}>
+                                            <StepLabel></StepLabel>
+                                        </Step>
+                                    )
+                                }    
+                                </Stepper>
                             </StepperContainer>
                             
                         </>
