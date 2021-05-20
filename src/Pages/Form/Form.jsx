@@ -72,15 +72,15 @@ class Form extends FormUI {
                                 }   
                                 {
                                 key === 5 &&
-                                <>                    
-                                    <AnswerContainer onClick={ () => this.saveAnwser( visibleCard + 1, key, "Si" )} item xs={6}>
-                                        <VeryGoodIcon />
-                                        <IconText>Si</IconText>             
-                                    </AnswerContainer>
+                                <>        
                                     <AnswerContainer onClick={ () => this.saveAnwser( visibleCard + 1, key, "No" )} item xs={6}>
                                         <MustImprove /> 
                                         <IconText>No</IconText>           
-                                    </AnswerContainer>                    
+                                    </AnswerContainer>              
+                                    <AnswerContainer onClick={ () => this.saveAnwser( visibleCard + 1, key, "Si" )} item xs={6}>
+                                        <VeryGoodIcon />
+                                        <IconText>Si</IconText>             
+                                    </AnswerContainer>                                                      
                                 </> 
                                 }   
                                 {
