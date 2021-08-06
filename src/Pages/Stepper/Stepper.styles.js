@@ -1,7 +1,7 @@
 /**
  * @desc Dependencias
  */
- import styled from "styled-components";
+ import styled, { css } from "styled-components";
 
  /**
   * @desc Material design
@@ -45,6 +45,12 @@
   * @desc Card
   */
  export const Slide = styled( SlideReact )`  
+    ${
+        props => props.show === false &&
+            css`
+                display: none;
+            `
+    }
      width: 100%;
      background-color:white;     
      border-radius: 50px;   
@@ -183,7 +189,7 @@ export const StepperContainer = styled( GridMaterial )`
  /**
  * @desc Pasos
  */
-export const Stepper = styled( StepperMaterial )`
+export const StepperCircles = styled( StepperMaterial )`
     &.MuiStepper-root{
         padding: 0px;
         margin-top: 20px;
@@ -207,7 +213,7 @@ export const Stepper = styled( StepperMaterial )`
  /**
  * @desc Paso
  */
-  export const Step = styled( StepMaterial )`
+  export const Circle = styled( StepMaterial )`
   
 `
  

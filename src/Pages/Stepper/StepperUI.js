@@ -5,11 +5,14 @@ import { Component } from "react";
 
 /* Modelos */
 import EmailModel from "../../Models/EmailModel";
+import ReviewModel from "../../Models/ReviewModel";
+import QuestionModel from "../../Models/QuestionModel";
 
 /* Utilidades */
 import { validateHttpResponse } from "../../Utils/ValidateResponse"
- 
- class FormUI extends Component {
+import { STORES } from '../../Utils/Constants'
+
+class FormUI extends Component {
    /**
     * @desc Constructor
     *
@@ -21,46 +24,49 @@ import { validateHttpResponse } from "../../Utils/ValidateResponse"
         super(props);
         
         this.state = {
-            // Preguntas del cuestionario
-            questions: [
+            // Pasos
+            steps:[ 
+                {                    
+                    title: "Calidad de la comida",
+                    type: "QUALIFICATIONS"                    
+                },
+                {                    
+                    title: "Atención",
+                    type: "QUALIFICATIONS"                    
+                },
+                {                    
+                    title: "Cordialidad de nuestros empleados",
+                    type: "QUALIFICATIONS"                    
+                },
+                {                    
+                    title: "Limpieza",
+                    type: "QUALIFICATIONS"                    
+                },
+                {                    
+                    title: "Relación precio/calidad",
+                    type: "QUALIFICATIONS"                    
+                },
+                {                    
+                    title: "¿Volvería a visitarnos?",
+                    type: "CHOICE"                    
+                },   
                 {
-                title: "Calidad de la comida"    
+                    title: "Dejanos algunos datos",
+                    type: "FORM"
                 },
                 {
-                title: "Atención"    
-                },
-                {
-                title: "Cordialidad de nuestros empleados"    
-                },
-                {
-                title: "Limpieza"    
-                },
-                {
-                title: "Relación precio/calidad"    
-                },
-                {
-                title: "¿Volvería a visitarnos?"    
-                },
-                {
-                title: "Dejanos algunos datos"    
-                },
-                {
-                title: "Gracias por responder"    
+                    title: "Gracias por responder",    
+                    type: "BUTTON"
                 },
             ],
+            // Preguntas
+            questions: [],
             // Card que esta visible
             visibleCard: 0,
             // Datos que deja el cliente 
             clientData:{
-                sugerencias: {
-                    value: "",
-                    empty: false
-                },
+                
                 name:{
-                    value: "",
-                    empty: false
-                },
-                direccion: {
                     value: "",
                     empty: false
                 },
@@ -68,11 +74,15 @@ import { validateHttpResponse } from "../../Utils/ValidateResponse"
                     value: "",
                     empty: false
                 },
-                telefono:{
+                phone:{
                     value: "",
                     empty: false
                 },
                 email:{
+                    value: "",
+                    empty: false
+                },
+                suggestions: {
                     value: "",
                     empty: false
                 }
@@ -88,17 +98,22 @@ import { validateHttpResponse } from "../../Utils/ValidateResponse"
     }
  
     // Guarda la respuesta del usuario
-    saveAnwser = (visibleCard, questionKey, anwser) => {
+    saveAnwser = ( title, qualification) => {
 
         // Alias del estado
         let {
-            questions,            
+            questions, 
+            visibleCard           
         } = this.state;
-
-        questions[questionKey].anwser = anwser;
         
+        // Agrega la pregunta al array 
+        questions.push({
+            title,
+            qualification
+        });
+                
         // Actualiza las preguntas y la card visible
-        this.setState({questions,visibleCard})
+        this.setState({ questions, visibleCard: visibleCard + 1 })
                
     } 
 
@@ -136,11 +151,11 @@ import { validateHttpResponse } from "../../Utils/ValidateResponse"
             clientData[key].value = '';
             clientData[key].empty = false;
 
-            this.setState(clientData)
         });
 
-        // Indicamos la card a mostrar
-        this.setState({ visibleCard: 0 })          
+        // Vacia las respuestas del usuario y indica la card a mostrar
+        this.setState({ clientData, questions: [], visibleCard: 0 })     
+
     }
 
     // Envia la reseña
@@ -162,8 +177,21 @@ import { validateHttpResponse } from "../../Utils/ValidateResponse"
                 return false;
             }
 
+            // Respuestas del cliente
+            clientData.anwsers = questions;
+
+            const review = {
+                store: STORES.ADROGUE,
+                name: clientData.name.value,
+                birthdate:  clientData.birthdate.value,
+                phone: clientData.phone.value,
+                email: clientData.email.value,
+                suggestions:  clientData.suggestions.value,
+                answers: questions
+            }
+
             // Obtenemos las ordenes
-            const response = await EmailModel.sendReview({ questions,clientData});
+            const response = await ReviewModel.sendReview(review);
     
             // Validamos la respuesta
             validateHttpResponse( response, async function(){                               
@@ -237,8 +265,7 @@ import { validateHttpResponse } from "../../Utils/ValidateResponse"
         }
 
     }
-
- 
+    
  }
  export default FormUI;
  
