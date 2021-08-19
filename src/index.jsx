@@ -4,7 +4,7 @@ import App from "./Pages/App/App";
 import { BrowserRouter } from "react-router-dom"
 
 ReactDOM.render(      
-      <BrowserRouter injectFirst>
+      <BrowserRouter basename="review" injectFirst>
             <App />
       </BrowserRouter>, 
       document.querySelector("#root")

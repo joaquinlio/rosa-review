@@ -20,7 +20,7 @@
        const request = new Requests();
              
        // Respuesta
-       return await request.get(`http://localhost:3001/questions`);
+       return await request.get(`https://backend.nicolasaugustolio.com.ar/questions`);
        
      } catch (error) {
        

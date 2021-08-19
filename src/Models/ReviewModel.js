@@ -23,7 +23,7 @@
        const request = new Requests();
        
        // Respuesta
-       return await request.post(`http://localhost:3001/reviews/add`, data );
+       return await request.post(`https://backend.nicolasaugustolio.com.ar/reviews/add`, data );
        
      } catch (error) {
        

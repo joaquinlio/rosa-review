@@ -2,14 +2,6 @@
  * @desc Dependencias
  */
  import React, { Component } from 'react';
-
- /**
-  * @desc Material design
-  */
- import { 
-   Toolbar
- } from '@material-ui/core';
- 
  
  // Componentes
  import BackgroundSlider from 'react-background-slider'
@@ -24,8 +16,8 @@ import slider2 from "../../assets/img/home-slider-4.jpg";
 import slider3 from "../../assets/img/home-slider-5.jpg";
  
 
-class Home extends Component {
-    render() {
+class Home extends Component {    
+    render() {       
         return (
             <>  
                 {/* Carrusel de imagenes */}                              

@@ -26,7 +26,7 @@ const App = ({ ...props }) => {
               <Suspense fallback={<CircularProgress />}>
 
                 {/* Rutas */}
-						    <Route exact path="/" render={ ({ ...props }) => <HomePage {...props} /> } /> 
+						    <Route path="/" render={ ({ ...props }) => <HomePage {...props} /> } /> 
                             
               </Suspense>
           </Switch>

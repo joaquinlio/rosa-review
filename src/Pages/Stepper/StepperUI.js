@@ -179,9 +179,12 @@ class FormUI extends Component {
 
             // Respuestas del cliente
             clientData.anwsers = questions;
-
+                       
+            let url = new URL(window.location.href);
+            let c = url.searchParams.get("s");
+           
             const review = {
-                store: STORES.ADROGUE,
+                store: STORES[c] || STORES.AD,
                 name: clientData.name.value,
                 birthdate:  clientData.birthdate.value,
                 phone: clientData.phone.value,
@@ -189,7 +192,7 @@ class FormUI extends Component {
                 suggestions:  clientData.suggestions.value,
                 answers: questions
             }
-
+            
             // Obtenemos las ordenes
             const response = await ReviewModel.sendReview(review);
     

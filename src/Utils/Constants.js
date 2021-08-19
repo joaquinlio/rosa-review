@@ -21,5 +21,9 @@ export const STEPTYPE = {
 
 // Locales
 export const STORES = {
-    ADROGUE: "ADROGUE"  
+    "AD": "ADROGUE",
+    "LM": "LOMITAS",
+    "LN": "LANUS",
+    "CN": "CANNING",
+    "RM": "RAMOS MEJIA"
 };

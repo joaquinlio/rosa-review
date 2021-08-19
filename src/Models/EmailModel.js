@@ -23,7 +23,7 @@ class EmailModel {
       const request = new Requests();
       console.log(data)
       // Respuesta
-      return await request.post(`http://localhost:3001/send-email`, data );
+      return await request.post(`https://backend.nicolasaugustolio.com.ar/send-email`, data );
       
     } catch (error) {
       
