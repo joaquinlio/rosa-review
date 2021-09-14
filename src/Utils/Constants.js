@@ -25,5 +25,6 @@ export const STORES = {
     "LM": "LOMITAS",
     "LN": "LANUS",
     "CN": "CANNING",
-    "RM": "RAMOS MEJIA"
+    "RM": "RAMOS MEJIA",
+    "MR": "MERCATO"
 };
