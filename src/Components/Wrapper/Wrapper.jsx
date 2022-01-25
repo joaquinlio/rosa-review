@@ -73,10 +73,10 @@ class Wrapper extends Component {
         },
         "CN": {
           title: "Canning",
-          address: "Av. Castex 1277",
+          address: "Av. Castex 5323",
           schedule: "Lu-Do 12 a 16 | 20 a 00 hs.",
-          phone: "11 5365-7092",
-          whatsapp: "9 11 5953-1805",
+          phone: "11 6191-2257",
+          whatsapp: "9 11 6191-2257",
           email: "canning@pastarossa.com.ar"
         },
         "RM": {
